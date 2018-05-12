@@ -1,0 +1,68 @@
+P075 = 0.075
+P150 = 0.15
+P225 = 0.225
+P275 = 0.275
+
+Tabela2017
+
+	getTetoEducacao
+		return 3561.5
+
+	getTetoPGBL Uedson
+		return Uedson_ganhoAnual * 0.12
+
+	adicionar Uedson
+		(Tabela2017_recebeuDe add Uedson)
+		return YES
+
+	adicionar Eduardo
+		return NO
+	
+	remover Uedson
+		return NO
+
+	remover Eduardo
+		(Tabela2017_recebeuDe remove Eduardo)
+		return YES
+
+	calcularIRPF Uedson
+		totalAPagar = 0.0
+		valorBase = Uedson_ganhoAnual - (Uedson calcularINSS)
+		
+		valorBase = valorBase - (Uedson_Saude dedutivo)
+		valorBase = valorBase - (Uedson_Educacao dedutivo)
+
+		if valorBase <= Tabela2017_faixaIsento
+			Uedson_valorFaixaIsento = valorBase
+		else
+			Uedson_valorFaixaIsento = Tabela2017_faixaIsento
+			valorBase = valorBase - Tabela2017_faixaIsento
+
+			if valorBase <= Tabela2017_faixa075
+				Uedson_valorFaixa075 = valorBase
+				totalAPagar = valorBase * P075
+			else
+				Uedson_valorFaixa075 = Tabela2017_faixa075
+				totalAPagar = Tabela2017_faixa075 * P075
+				valorBase = valorBase - Tabela2017_faixa075
+				
+				if valorBase <= Tabela2017_faixa150
+					Uedson_valorFaixa150 = valorBase
+					totalAPagar = totalAPagar + valorBase * P150
+				else
+					Uedson_valorFaixa150 = Tabela2017_faixa150
+					totalAPagar = totalAPagar + Tabela2017_faixa150 * P150
+					valorBase = valorBase - Tabela2017_faixa150
+			
+					if valorBase <= Tabela2017_faixa225
+					            Uedson_valorFaixa225 = valorBase
+					            totalAPagar = totalAPagar + valorBase * P225
+					else
+								Uedson_valorFaixa225 = Tabela2017_faixa225
+								totalAPagar = totalAPagar + Tabela2017_faixa225 * P225
+								valorBase = valorBase - Tabela2017_faixa225
+								Uedson_valorFaixa275 = valorBase
+								totalAPagar = totalAPagar + valorBase * P275
+
+		Uedson_totalAPagar = totalAPagar
+		(Tabela2017_recebeuDe add Uedson)

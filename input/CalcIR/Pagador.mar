@@ -1,0 +1,18 @@
+taxaPadraoINSS = 0.11
+inssLimite1 = 1659.38 * 13
+inssLimite2 = 2765.66 * 13
+inssLimite3 = 5531.31 * 13
+
+Uedson
+	calcularINSS
+		taxa = taxaPadraoINSS
+
+		if Uedson_ganhoAnual <= inssLimite1
+			taxa = 0.08
+		else if Uedson_ganhoAnual <= inssLimite2
+			taxa = 0.09
+
+		if Uedson_ganhoAnual > inssLimite3
+			return inssLimite3 * taxa
+		else
+			return Uedson_ganhoAnual * taxa

@@ -1,0 +1,9 @@
+
+Adenosina
+
+	maisUm
+		Adenosina_quantidade = Adenosina_quantidade + 1
+
+	menosUm
+		if Adenosina_quantidade > 0
+			Adenosina_quantidade = Adenosina_quantidade - 1

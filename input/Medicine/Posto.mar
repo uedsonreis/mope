@@ -1,0 +1,16 @@
+
+CajazeirasIV
+
+	adicionar Adenosina
+		(CajazeirasIV_possui add Adenosina)
+		return YES
+
+	adicionar Acarbose
+		return NO
+	
+	remover Adenosina
+		return NO
+
+	remover Acarbose
+		(CajazeirasIV_possui remove Acarbose)
+		return YES
