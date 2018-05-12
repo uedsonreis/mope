@@ -1,7 +1,0 @@
-Educacao
-
-	dedutivo
-		if Educacao_teto ! null and Educacao_valor > Educacao_teto
-			return Educacao_teto
-		else
-			return Educacao_valor
