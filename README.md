@@ -1,2 +1,2 @@
 # mope
-Doctoral Project
+PhD Project
